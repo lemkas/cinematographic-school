@@ -1,6 +1,9 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
+const homeRoutes = require("./routes/home");
+const coursesRoutes = require("./routes/courses");
+const addRoutes = require("./routes/add");
 
 //настройка хбрс
 const hbs = exphbs.create({
@@ -16,26 +19,13 @@ app.set("views", "views");
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.render("index", {
-    title: "Главная страница",
-    isHome: true,
-  });
-});
+// распознаем, что приходит с пост запроса
+app.use(express.urlencoded({ extended: true }));
 
-app.get("/courses", (req, res) => {
-  res.render("courses", {
-    title: "Курсы",
-    isCourses: true,
-  });
-});
+app.use("/", homeRoutes);
+app.use("/courses", coursesRoutes);
+app.use("/add", addRoutes);
 
-app.get("/add", (req, res) => {
-  res.render("courses", {
-    title: "Добавить курс",
-    isAdd: true,
-  });
-});
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
