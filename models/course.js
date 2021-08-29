@@ -21,6 +21,28 @@ class Course {
     };
   }
 
+  // обновление отредактированного курса
+  static async update(course) {
+    const courses = await Course.getALL();
+
+    const idx = courses.findIndex((c) => c.id === course.id);
+    courses[idx] = course;
+
+    return new Promise((resolve, reject) => {
+      fs.writeFile(
+        path.join(__dirname, "..", "data", "courses.json"),
+        JSON.stringify(courses),
+        (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        }
+      );
+    });
+  }
+
   //метод сохраняющий данные в файл
   async save() {
     const courses = await Course.getALL();
@@ -57,6 +79,11 @@ class Course {
         }
       );
     });
+  }
+
+  static async getById(id) {
+    const courses = await Course.getALL();
+    return courses.find((c) => c.id === id);
   }
 }
 

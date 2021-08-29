@@ -1,5 +1,5 @@
 
-    <h1>Курсы</h1>
+    <h1 class="courses-h1">Курсы</h1>
 
 {{#if courses.length}}
 {{#each courses}}
@@ -15,6 +15,7 @@
         </div>
         <div class="card-action">
           <a href="/courses/{{id}}">Открыть курс</a>
+          <a href="/courses/{{id}}/edit?allow=true">Редактировать курс</a>
         </div>
       </div>
     </div>

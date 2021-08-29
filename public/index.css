@@ -6,9 +6,27 @@
   font-size: 2rem;
 }
 
+.courses-h1 {
+  text-align: center;
+}
+
 .course {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.course h1 {
+  margin-bottom: 2rem;
+}
+
+.course img {
+  width: 100%;
+  height: 100%;
+  margin-top: 10px;
+}
+
+.course .content {
+  font-size: 3rem;
 }
