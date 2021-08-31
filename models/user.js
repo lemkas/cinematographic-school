@@ -55,6 +55,13 @@ class User {
       );
     });
   }
+
+  static async authFunction(email, password) {
+    const users = await User.getUser();
+    if (users.find((u) => u.email === email && u.password === password)) {
+      return true;
+    }
+  }
 }
 
 module.exports = User;
