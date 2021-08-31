@@ -30,3 +30,11 @@
 .course .content {
   font-size: 3rem;
 }
+
+.collection {
+  margin-left: -230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}

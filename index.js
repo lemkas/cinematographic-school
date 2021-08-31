@@ -4,6 +4,8 @@ const app = express();
 const homeRoutes = require("./routes/home");
 const coursesRoutes = require("./routes/courses");
 const addRoutes = require("./routes/add");
+const authRoutes = require("./routes/auth");
+const regRoutes = require("./routes/reg");
 
 //настройка хбрс
 const hbs = exphbs.create({
@@ -22,7 +24,9 @@ app.use(express.static("public"));
 // распознаем, что приходит с пост запроса
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", homeRoutes);
+app.use("/", authRoutes);
+app.use("/reg", regRoutes);
+app.use("/home", homeRoutes);
 app.use("/courses", coursesRoutes);
 app.use("/add", addRoutes);
 

@@ -1,7 +1,7 @@
 <h1>Добавить курс</h1>
 
 
-<form action="/add" method="POST">
+<form class="add-form" action="/add" method="POST">
     <div class="input-field">
         <input id="title" name="title" type="text" class="validate" required>
         <label for="title">Название курса</label>
@@ -26,5 +26,8 @@
         <span class="helper-text" data-error="Введите описание курса"></span>
     </div>
 
+
     <button class="btn btn-primary">Создать курс</button>
 </form>
+
+<button class="btn add-lesson">Добавить Урок</button>
