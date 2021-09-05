@@ -1,6 +1,6 @@
 <nav>
     <div class="nav-wrapper">
-      <a href="/" class="brand-logo">Киношкола кадрик</a>
+      <a href="/home" class="brand-logo">Киношкола кадрик</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         
         {{#if isHome}}
@@ -21,10 +21,16 @@
           <li><a href="/add">Создать курс</a></li>
         {{/if}}
 
-        {{#if isAuth}}
-          <li class="active"><a href="/">Войти</a></li>
+        {{#if isCard}}
+          <li class="active"><a href="/card">Корзина</a></li>
         {{else}}
-          <li><a href="/">Войти</a></li>
+          <li><a href="/card">Корзина</a></li>
+        {{/if}}
+
+        {{#if isAcc}}
+          <li class="active"><a href="/pers-acc">Личный кабинет</a></li>
+        {{else}}
+          <li><a href="/pers-acc">Личный кабинет</a></li>
         {{/if}}
       </ul>
     </div>
